@@ -70,3 +70,27 @@ matriz2
 
 #Multiplicacion de matrices
 matriz1 %*% matriz2
+
+empresa <- read.csv("https://raw.githubusercontent.com/VictorGuevaraP/ME-Machine-Learning/master/publicidad.csv", sep = ";")
+#visualizacion de empresa
+View(empresa)
+
+#visualizamos los primeros registros
+head(empresa,n = 20)
+
+#Estructura de los datos 
+str(empresa)
+
+#Modificamos periodico porque es un importe lo cual deberia ser numeric
+empresa$Periodico <- as.numeric(empresa$Periodico)
+str(empresa)
+
+summary(empresa)
+
+#primer cuartil 25%
+
+?summary
+
+#install.packages("Hmisc")
+#library(Hmsic)
+
