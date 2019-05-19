@@ -102,5 +102,33 @@ cov(empresa)
 cor(empresa)
 
 library(corrplot)
-corrplot(cor(empresa), method = 'pie')
+corrplot(cor(empresa), method = c('square'))
+corrplot(cor(empresa), method = c('number'))
 
+library(PerformanceAnalytics)
+chart.Correlation(iris[,1:4])
+
+boxplot(empresa$Ventas, col=3)
+boxplot(empresa$Periodico, col=3)
+
+hist(empresa$Periodico, col = 'red')
+
+par(mfrow=c(1,2))
+boxplot(empresa$Periodico, col=3)
+hist(empresa$Periodico,col=2)
+par(mfrow=c(1,1))
+
+plot(density(empresa$Periodico))
+library(fBasics)
+skewness(empresa$Periodico)
+kurtosis(empresa$Periodico)
+
+
+modelo1 <- lm(Ventas~Television, data=empresa)
+summary(modelo1)
+
+modelo2 <- lm(Ventas~Television+Radio, data=empresa)
+summary(modelo2)
+
+modelo3 <- lm(Ventas~Television+Radio+Periodico, data=empresa)
+summary(modelo3)
