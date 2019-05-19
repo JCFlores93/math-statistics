@@ -87,5 +87,20 @@ play3d(spin3d(gif), duration = 20)
 gif1 <- plot3d(telco[,2:4], col= as.integer(telco$Desafiliado), type = 's', radius = 0.9)
 play3d(spin3d(gif1), duration = 1)
 
+#Se trata de evaluar relaciones 
+plot(telco)
 
+plot(empresa)
+
+library(aplpack)
+#Se utiliza mas en análisis no supervisado(clusters)
+faces(telco[1:20,2:5])
+
+#Covarianza variables cuantitativas
+cov(empresa)
+
+cor(empresa)
+
+library(corrplot)
+corrplot(cor(empresa), method = 'pie')
 
