@@ -5,8 +5,6 @@ telco <- read.csv('https://raw.githubusercontent.com/VictorGuevaraP/ME-Machine-L
 #Variable dependiente -> desafiliado
 head(telco)
 
-
-
 empresa <- read.csv('https://raw.githubusercontent.com/VictorGuevaraP/ME-Machine-Learning/master/publicidad.csv', sep = ';')
 
 #Observamos el conjunto de datos
@@ -132,3 +130,7 @@ summary(modelo2)
 
 modelo3 <- lm(Ventas~Television+Radio+Periodico, data=empresa)
 summary(modelo3)
+
+
+
+
