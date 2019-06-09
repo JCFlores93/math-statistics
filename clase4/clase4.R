@@ -67,6 +67,24 @@ summary(coeficientes1)
 #Obtener la probabilidad
 exp(coeficientes1)
 
+modelodnb1 <- naiveBayes(Desafiliado~., data= lost_client, method="class")
+modelodnb1
+predicciones1 <- predict(modelodnb1, lost_client$Desafiliado, type='class')
+table(predicciones1)
+
 library(MASS)
 # Significancia de cada variable
 stepAIC(modelolog1)
+
+#naive bayes
+library(e1071)
+names(morosidad)
+
+modelodnb <- naiveBayes(Mora~., data= morosidad, method="class")
+
+modelodnb
+predicciones <- predict(modelodnb, morosidad, type='class')
+table(predicciones)
+table(predicciones, morosidad$Mora)
+library(caret)
+confusionMatrix(predicciones, morosidad$Mora)
