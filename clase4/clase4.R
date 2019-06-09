@@ -88,3 +88,17 @@ table(predicciones)
 table(predicciones, morosidad$Mora)
 library(caret)
 confusionMatrix(predicciones, morosidad$Mora)
+
+modeloa2 <- rpart(Mora~., data=morosidad, method = 'class', cp=0, minbucket=5)
+modeloa2
+
+prediccion2 <- predict(modeloa2,morosidad, type = "class")
+table(prediccion2,morosidad$Mora)
+
+# CURVA ROC
+prediccionespro <- predict(modelodnb, morosidad, type = "raw")[,2]
+library(ROCR)
+Ppred1 <- prediction(prediccionespro, morosidad$Mora)
+Ppred2 <- performance(Ppred1, "tpr", "fpr")
+
+plot(Ppred2, colorize=T)
